@@ -1,7 +1,7 @@
 {
   "name": "shader-effect",
   "description": "Transform your images into stunning shader art.",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "type": "module",
   "license": "MIT",
   "author": {
@@ -35,7 +35,8 @@
     "build": "vite build",
     "build-lib": "vite build --config vite.lib.config.js",
     "preview": "vite preview",
-    "prepublishOnly": "npm run build-lib"
+    "prepublishOnly": "npm run build-lib",
+    "test": "echo \"No test specified\""
   },
   "devDependencies": {
     "vite": "^5.2.0"

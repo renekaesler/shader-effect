@@ -12,28 +12,23 @@ import defaultShaders from "./default-shaders";
 
 
 class ShaderEffect extends HTMLCanvasElement {
-  #mode;
   #vertexShader;
   #fragmentShader;
 
   constructor() {
     super();
 
-    this.gl = this.getContext('webgl');
-  }
+    if(!this.dataset.context) {
+      this.dataset.context = 'webgl2';
+    }
 
-
-  get mode() {
-    return this.#mode || 'webgl';
-  }
-
-  set mode(value) {
-    this.#mode = value;
+    this.gl = this.getContext(this.dataset.context);
   }
 
 
   get vertexShader() {
-    return this.#vertexShader || defaultShaders[this.mode].vertexShader;
+    const { vertexShader } = defaultShaders[this.dataset.context];
+    return this.#vertexShader || vertexShader;
   }
 
   set vertexShader(shader) {
@@ -42,7 +37,8 @@ class ShaderEffect extends HTMLCanvasElement {
 
 
   get fragmentShader() {
-    return this.#fragmentShader || defaultShaders[this.mode].fragmentShader;
+    const { fragmentShader } = defaultShaders[this.dataset.context];
+    return this.#fragmentShader || fragmentShader;
   }
 
   set fragmentShader(shader) {
@@ -51,9 +47,7 @@ class ShaderEffect extends HTMLCanvasElement {
 
 
   connectedCallback() {
-    const event = new Event('connected')
-    this?.onconnected?.(event);
-    this.dispatchEvent(event);
+    this.dispatchEvent(new Event('connected'));
   }
 
 

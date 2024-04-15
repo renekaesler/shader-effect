@@ -29,12 +29,9 @@
     </style>
   </head>
   <body>
-    <canvas width="400" height="400" is="shader-effect">
+    <canvas width="400" height="400" is="shader-effect" data-context="webgl">
       <script>
         Object.assign(document.currentScript.parentElement, {
-          onconnected: () => {
-            console.log('boom')
-          },
           imageSrc: 'vite.svg',
           charactersSrc: 'characters.png',
           smoothness: 0.2,
