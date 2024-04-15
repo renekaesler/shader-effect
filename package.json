@@ -1,0 +1,47 @@
+{
+  "name": "shader-effect",
+  "description": "Transform your images into stunning shader art.",
+  "version": "0.1.0",
+  "type": "module",
+  "license": "MIT",
+  "author": {
+    "name": "Rene Kaesler",
+    "email": "renekaesler@gmail.com",
+    "url": "https://renekaesler.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/renekaesler/shader-effect.git"
+  },
+  "keywords": [
+    "WebComponents",
+    "CustomizedElements",
+    "WebGL"
+  ],
+  "files": [
+    "README.md",
+    "dist"
+  ],
+  "main": "./dist/shader-effect.umd.cjs",
+  "module": "./dist/shader-effect.js",
+  "exports": {
+    ".": {
+      "import": "./dist/shader-effect.js",
+      "require": "./dist/shader-effect.umd.cjs"
+    }
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "build-lib": "vite build --config vite.lib.config.js",
+    "preview": "vite preview",
+    "prepublishOnly": "npm run build-lib"
+  },
+  "devDependencies": {
+    "vite": "^5.2.0"
+  },
+  "dependencies": {
+    "lil-gui": "^0.19.2",
+    "twgl.js": "^5.5.4"
+  }
+}
